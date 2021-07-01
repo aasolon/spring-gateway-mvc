@@ -1,0 +1,171 @@
+#HTTP/1.1 200 OK
+#Date: Wed, 30 Jun 2021 20:23:18 GMT
+#Content-Type: application/json
+#Content-Length: 380
+#Connection: keep-alive
+#Server: gunicorn/19.9.0
+#Access-Control-Allow-Origin: *
+#Access-Control-Allow-Credentials: true
+#
+#{
+#  "args": {
+#    "param1": "value< 1"
+#  },
+#  "headers": {
+#    "Accept-Encoding": "gzip,deflate",
+#    "Host": "httpbin.org",
+#    "User-Agent": "Apache-HttpClient/4.5.13 (Java/11.0.11)",
+#    "X-Amzn-Trace-Id": "Root=1-60dcd2b6-295c3ba002b057d403b1e547",
+#    "X-Url": "http://httpbin.org"
+#  },
+#  "origin": "77.37.206.167",
+#  "url": "http://httpbin.org/get?param1=value<+1"
+#}
+
+GET http://httpbin.org/get?param1=value< 1
+X-URL: http://httpbin.org
+
+###
+
+#HTTP/1.1 200
+#Date: Wed, 30 Jun 2021 20:22:47 GMT
+#Content-Type: application/json
+#Content-Length: 466
+#Connection: keep-alive, keep-alive
+#Server: gunicorn/19.9.0
+#Access-Control-Allow-Origin: *
+#Access-Control-Allow-Credentials: true
+#Keep-Alive: timeout=60
+#
+#{
+#  "args": {
+#    "param1": "value< 1"
+#  },
+#  "headers": {
+#    "Accept": "application/octet-stream, application/json, application/*+json, */*",
+#    "Accept-Encoding": "gzip,deflate",
+#    "Host": "httpbin.org",
+#    "User-Agent": "Apache-HttpClient/4.5.13 (Java/11.0.11)",
+#    "X-Amzn-Trace-Id": "Root=1-60dcd297-3f8194a95213092724c84761",
+#    "X-Url": "http://httpbin.org"
+#  },
+#  "origin": "77.37.206.167",
+#  "url": "http://httpbin.org/get?param1=value<+1"
+#}
+
+GET localhost:8080/get?param1=value< 1
+X-URL: http://httpbin.org
+
+###
+
+
+#HTTP/1.1 200 OK
+#Date: Wed, 30 Jun 2021 20:20:47 GMT
+#Content-Type: application/json
+#Content-Length: 500
+#Connection: keep-alive
+#Server: gunicorn/19.9.0
+#Access-Control-Allow-Origin: *
+#Access-Control-Allow-Credentials: true
+#
+#{
+#  "args": {},
+#  "data": "{\"a\": \"b\"}",
+#  "files": {},
+#  "form": {},
+#  "headers": {
+#    "Accept-Encoding": "gzip,deflate",
+#    "Content-Length": "10",
+#    "Content-Type": "*/*; charset=UTF-8",
+#    "Host": "httpbin.org",
+#    "User-Agent": "Apache-HttpClient/4.5.13 (Java/11.0.11)",
+#    "X-Amzn-Trace-Id": "Root=1-60dcd21f-2f1aa51f1e7bd80a036491bc",
+#    "X-Url": "http://httpbin.org"
+#  },
+#  "json": {
+#    "a": "b"
+#  },
+#  "origin": "77.37.206.167",
+#  "url": "http://httpbin.org/post"
+#}
+
+POST http://httpbin.org/post
+X-URL: http://httpbin.org
+
+{"a": "b"}
+
+###
+
+#HTTP/1.1 200
+#Date: Wed, 30 Jun 2021 20:21:11 GMT
+#Content-Type: application/json
+#Content-Length: 586
+#Connection: keep-alive, keep-alive
+#Server: gunicorn/19.9.0
+#Access-Control-Allow-Origin: *
+#Access-Control-Allow-Credentials: true
+#Keep-Alive: timeout=60
+#
+#{
+#  "args": {},
+#  "data": "{\"a\": \"b\"}",
+#  "files": {},
+#  "form": {},
+#  "headers": {
+#    "Accept": "application/octet-stream, application/json, application/*+json, */*",
+#    "Accept-Encoding": "gzip,deflate",
+#    "Content-Length": "10",
+#    "Content-Type": "*/*; charset=UTF-8",
+#    "Host": "httpbin.org",
+#    "User-Agent": "Apache-HttpClient/4.5.13 (Java/11.0.11)",
+#    "X-Amzn-Trace-Id": "Root=1-60dcd237-31c54b317122311b745e0640",
+#    "X-Url": "http://httpbin.org"
+#  },
+#  "json": {
+#    "a": "b"
+#  },
+#  "origin": "77.37.206.167",
+#  "url": "http://httpbin.org/post"
+#}
+
+POST localhost:8080/post
+X-URL: http://httpbin.org
+
+{"a": "b"}
+
+###
+
+#PUT http://httpbin.org/put
+PUT localhost:8080/put
+X-URL: http://httpbin.org
+
+{"a": "b"}
+
+###
+
+#X-File-Custom-Header-1111:"2222222222222222222"
+#Accept-Ranges:"bytes"
+#Content-Type:"video/mp4"
+#Content-Length:"97252217"
+#Date:"Wed 30 Jun 2021 21:10:00 GMT"
+#Keep-Alive:"timeout=60"
+#Connection:"keep-alive"
+
+GET http://localhost:8081/download-file
+X-URL: http://localhost:8081
+
+###
+
+#X-File-Custom-Header-1111:"2222222222222222222"
+#Accept-Ranges:"bytes"
+#Content-Type:"video/mp4"
+#Content-Length:"97252217"
+#Date:"Wed 30 Jun 2021 21:11:13 GMT"
+#Keep-Alive:"timeout=60"
+#Connection:"keep-alive, keep-alive"
+
+
+GET http://localhost:8080/download-file
+X-URL: http://localhost:8081
+#Range: bytes=0-1
+
